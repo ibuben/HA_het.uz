@@ -12,12 +12,12 @@ from homeassistant.components.sensor import (
     SensorStateClass,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CURRENCY_UZS, UnitOfEnergy
+from homeassistant.const import UnitOfEnergy
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .const import CONF_LOGIN, DOMAIN
+from .const import CONF_LOGIN, DOMAIN, UNIT_CURRENCY
 from .coordinator import HetUzDataUpdateCoordinator
 
 
@@ -44,7 +44,7 @@ SENSOR_TYPES: tuple[HetUzSensorEntityDescription, ...] = (
         transform=lambda v: _divide(v, 100),
         device_class=SensorDeviceClass.MONETARY,
         state_class=SensorStateClass.TOTAL,
-        native_unit_of_measurement=CURRENCY_UZS,
+        native_unit_of_measurement=UNIT_CURRENCY,
     ),
     HetUzSensorEntityDescription(
         key="last_crawl_reading",
@@ -67,7 +67,7 @@ SENSOR_TYPES: tuple[HetUzSensorEntityDescription, ...] = (
         transform=lambda v: _divide(v, 100),
         device_class=SensorDeviceClass.MONETARY,
         state_class=SensorStateClass.TOTAL,
-        native_unit_of_measurement=CURRENCY_UZS,
+        native_unit_of_measurement=UNIT_CURRENCY,
     ),
     HetUzSensorEntityDescription(
         key="last_payment_date",
@@ -90,7 +90,7 @@ SENSOR_TYPES: tuple[HetUzSensorEntityDescription, ...] = (
         transform=lambda v: _divide(v, 100),
         device_class=SensorDeviceClass.MONETARY,
         state_class=SensorStateClass.TOTAL,
-        native_unit_of_measurement=CURRENCY_UZS,
+        native_unit_of_measurement=UNIT_CURRENCY,
     ),
     HetUzSensorEntityDescription(
         key="eco_current_month_calc_kwh",

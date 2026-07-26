@@ -18,3 +18,5 @@ CONF_PASSWORD = "password"
 DEFAULT_SCAN_INTERVAL = timedelta(minutes=30)
 
 STORAGE_AUTH = "auth"
+
+UNIT_CURRENCY = "UZS"

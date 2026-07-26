@@ -1,0 +1,60 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "HET.uz",
+        "description": "Введите данные для входа в личный кабинет HET.uz.",
+        "data": {
+          "login": "Номер счёта",
+          "password": "Пароль"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Неверный номер счёта или пароль.",
+      "cannot_connect": "Не удалось подключиться к API HET.uz.",
+      "unknown": "Произошла непредвиденная ошибка."
+    },
+    "abort": {
+      "already_configured": "Этот счёт уже настроен."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Настройки HET.uz",
+        "data": {
+          "scan_interval": "Интервал обновления (секунды)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "balance": {
+        "name": "Баланс"
+      },
+      "last_crawl_reading": {
+        "name": "Показания счётчика"
+      },
+      "last_crawl_date": {
+        "name": "Дата показаний"
+      },
+      "last_payment": {
+        "name": "Последний платёж"
+      },
+      "last_payment_date": {
+        "name": "Дата последнего платежа"
+      },
+      "current_month_calc_kwh": {
+        "name": "Потребление за текущий месяц"
+      },
+      "current_month_calc_sum": {
+        "name": "Начисление за текущий месяц"
+      },
+      "eco_current_month_calc_kwh": {
+        "name": "Потребление за месяц (эко-тариф)"
+      }
+    }
+  }
+}

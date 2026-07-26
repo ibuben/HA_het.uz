@@ -8,7 +8,7 @@ from typing import Any
 import aiohttp
 import voluptuous as vol
 
-from homeassistant.config_entries import ConfigFlow, ConfigFlowResult, OptionsFlow
+from homeassistant.config_entries import ConfigEntry, ConfigFlow, ConfigFlowResult, OptionsFlow
 from homeassistant.core import callback
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from .api import HetUzApi, HetUzAuthError, HetUzApiError
@@ -25,10 +25,9 @@ STEP_USER_DATA_SCHEMA = vol.Schema(
 
 OPTIONS_SCHEMA = vol.Schema(
     {
-        vol.Required(
-            "scan_interval",
-            default=int(DEFAULT_SCAN_INTERVAL.total_seconds()),
-        ): vol.All(vol.Coerce(int), vol.Range(min=300, max=86400)),
+        vol.Required("scan_interval"): vol.All(
+            vol.Coerce(int), vol.Range(min=300, max=86400)
+        ),
     }
 )
 
@@ -81,17 +80,13 @@ class HetUzConfigFlow(ConfigFlow, domain=DOMAIN):
 
     @staticmethod
     @callback
-    def async_get_options_flow(config_entry) -> OptionsFlow:
+    def async_get_options_flow(config_entry: ConfigEntry) -> OptionsFlow:
         """Get the options flow for this handler."""
-        return HetUzOptionsFlow(config_entry)
+        return HetUzOptionsFlow()
 
 
 class HetUzOptionsFlow(OptionsFlow):
     """Handle options for HET.uz."""
-
-    def __init__(self, config_entry) -> None:
-        """Initialize options flow."""
-        self.config_entry = config_entry
 
     async def async_step_init(
         self, user_input: dict[str, Any] | None = None
@@ -107,6 +102,7 @@ class HetUzOptionsFlow(OptionsFlow):
 
         return self.async_show_form(
             step_id="init",
-            data_schema=OPTIONS_SCHEMA,
-            data={"scan_interval": current},
+            data_schema=self.add_suggested_values_to_schema(
+                OPTIONS_SCHEMA, {"scan_interval": current}
+            ),
         )

@@ -1,0 +1,12 @@
+{
+  "domain": "het_uz",
+  "name": "HET.uz",
+  "codeowners": ["@ibuben"],
+  "config_flow": true,
+  "documentation": "https://github.com/ibuben/HA_het.uz",
+  "integration_type": "hub",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/ibuben/HA_het.uz/issues",
+  "requirements": [],
+  "version": "1.0.0"
+}

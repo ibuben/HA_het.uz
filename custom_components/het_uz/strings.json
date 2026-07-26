@@ -1,0 +1,60 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "HET.uz",
+        "description": "Enter your HET.uz personal cabinet credentials.",
+        "data": {
+          "login": "Account number",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid account number or password.",
+      "cannot_connect": "Failed to connect to HET.uz API.",
+      "unknown": "Unexpected error occurred."
+    },
+    "abort": {
+      "already_configured": "This account is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "HET.uz options",
+        "data": {
+          "scan_interval": "Update interval (seconds)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "balance": {
+        "name": "Balance"
+      },
+      "last_crawl_reading": {
+        "name": "Meter reading"
+      },
+      "last_crawl_date": {
+        "name": "Meter reading date"
+      },
+      "last_payment": {
+        "name": "Last payment"
+      },
+      "last_payment_date": {
+        "name": "Last payment date"
+      },
+      "current_month_calc_kwh": {
+        "name": "Current month consumption"
+      },
+      "current_month_calc_sum": {
+        "name": "Current month cost"
+      },
+      "eco_current_month_calc_kwh": {
+        "name": "Current month consumption (eco tariff)"
+      }
+    }
+  }
+}

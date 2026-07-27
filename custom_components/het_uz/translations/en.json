@@ -53,7 +53,7 @@
         "name": "Current month cost"
       },
       "eco_current_month_calc_kwh": {
-        "name": "Current month consumption (eco tariff)"
+        "name": "Current month transferred to grid"
       }
     }
   }
